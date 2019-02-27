@@ -20,7 +20,7 @@ app.get("/", (req, res) =>
 );
 
 const userData = fs.readFileSync(
-  path.join(__dirname, "json", "user.json"),
+  path.join(__dirname, "json", "users.json"),
   "utf8"
 );
 const users = JSON.parse(userData);
