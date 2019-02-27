@@ -10,7 +10,7 @@ app.set("view engine", "ejs");
 
 app.use(express.static(path.join(__dirname, "public")));
 
-const accountData = fs.readFile(
+const accountData = fs.readFileSync(
   path.join(__dirname, "json", "accounts.json"),
   "utf8"
 );
@@ -33,6 +33,10 @@ app.get("/checking", (req, res) => {
 });
 app.get("/credit", (req, res) => {
   res.render("account", { account: accounts.credit });
+});
+
+app.get("./profile", (req, res) => {
+  res.render("profile", { user: user[0] });
 });
 
 app.listen(3000, () => console.log("Project running on port 3000!"));
